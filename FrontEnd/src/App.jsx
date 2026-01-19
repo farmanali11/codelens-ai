@@ -9,6 +9,9 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-tomorrow.css";
 import "./App.css";
 
+// Production backend URL
+const API_URL = "https://codelens-ai-backend.vercel.app";
+
 function App() {
   const [code, setCode] = useState(
     `function sum(a, b) {
@@ -36,7 +39,7 @@ function App() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/ai/get-review",
+        `${API_URL}/ai/get-review`,
         { code },
         { timeout: 60000 },
       );
